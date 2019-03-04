@@ -930,3 +930,75 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 40ms (Views: 34.7ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/articles/new" for 127.0.0.1 at 2019-03-03 23:03:52 -0500
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 139ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2019-03-03 23:04:00 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RvawlawrPYtyPoWJi3v6kuBwL6RfG9mthiFh2wpCTFkP0OCoZxTuGiMFH/L0SyMpmDfHTkAOhxCuh3TWColvVQ==", "article"=>{"title"=>"", "text"=>"LOL"}, "commit"=>"Save Article"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/articles_controller.rb:17
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 46ms (Views: 31.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-03-03 23:08:38 -0500
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:12
+  Rendered articles/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 42ms (Views: 34.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/4/edit" for 127.0.0.1 at 2019-03-03 23:08:42 -0500
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:15
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/edit.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 50ms (Views: 43.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/articles/4" for 127.0.0.1 at 2019-03-03 23:08:48 -0500
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8u599LJprq1sGWNuGcFzkvitv4dJFoNbOxd89qtEILdYZT0AtQg4J2Du6nxMn0Hhw7RlolVZL4Hh0NLNj/n1sQ==", "article"=>{"title"=>"Question from Aaron", "text"=>"Can you edit the article? A: No, not yet. edit: yes we can"}, "commit"=>"Update Article", "id"=>"4"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:31
+  [1m[36mArticle Update (0.4ms)[0m  [1m[33mUPDATE "articles" SET "text" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["text", "Can you edit the article? A: No, not yet. edit: yes we can"], ["updated_at", "2019-03-04 04:08:48.376562"], ["id", 4]]
+  ↳ app/controllers/articles_controller.rb:31
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:31
+Redirected to http://localhost:3000/articles/4
+Completed 302 Found in 14ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/articles/4" for 127.0.0.1 at 2019-03-03 23:08:48 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:7
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2019-03-03 23:08:50 -0500
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:12
+  Rendered articles/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 36ms (Views: 31.7ms | ActiveRecord: 0.4ms)
+
+
